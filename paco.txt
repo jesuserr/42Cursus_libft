@@ -1,0 +1,1 @@
+alias paco=/home/codespace/francinette/tester.sh
