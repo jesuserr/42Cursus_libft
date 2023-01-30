@@ -6,7 +6,7 @@
 /*   By: jesuserr <jesuserr@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:38:15 by jesuserr          #+#    #+#             */
-/*   Updated: 2023/01/26 17:51:58 by jesuserr         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:35:41 by jesuserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {	
 	t_list	*temp;
 
-	if (lst == NULL)
+	if (!lst)
 		return ;
 	while (*lst)
 	{
