@@ -24,6 +24,7 @@ $(NAME): $(OBJS)
 bonus: $(BONUS)
 $(BONUS) : $(OBJS) $(OBJSBONUS)
 	ar -rcs $(NAME) $(OBJS) $(OBJSBONUS)
+	touch $@
 -include $(DEPS_BONUS)
 clean:
 	$(RM) $(OBJS) $(OBJSBONUS) $(DEPS) $(DEPS_BONUS)
