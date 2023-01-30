@@ -11,23 +11,18 @@ SRCSBONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 OBJS = $(SRCS:.c=.o)
 OBJSBONUS = $(SRCSBONUS:.c=.o)
-INCLUDE = -I ./
 RM = rm -f
-DEPS = $(SRCS:.c=.d)
-DEPS_BONUS = $(SRCSBONUS:.c=.d)
 %.o: %.c
-	$(CC) $(CFLAGS) -MMD $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
--include $(DEPS)
 bonus: $(BONUS)
 $(BONUS) : $(OBJS) $(OBJSBONUS)
 	ar -rcs $(NAME) $(OBJS) $(OBJSBONUS)
-	touch $@
--include $(DEPS_BONUS)
+	@touch $(BONUS)
 clean:
-	$(RM) $(OBJS) $(OBJSBONUS) $(DEPS) $(DEPS_BONUS)
+	$(RM) $(OBJS) $(OBJSBONUS)
 fclean: clean
 	$(RM) $(NAME)
 re: fclean all
