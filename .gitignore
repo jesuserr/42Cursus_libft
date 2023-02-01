@@ -1,4 +1,6 @@
 paco.txt
+.DS_Store
+.touch
 
 # Prerequisites
 *.d
