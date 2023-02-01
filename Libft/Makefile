@@ -12,18 +12,23 @@ ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c 
 OBJS = $(SRCS:.c=.o)
 OBJSBONUS = $(SRCSBONUS:.c=.o)
+INCLUDE = -I ./
 RM = rm -f
+DEPS = $(SRCS:.c=.d)
+DEPS_BONUS = $(SRCSBONUS:.c=.d)
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -MMD $(INCLUDE) -c $< -o $@
 all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
+-include $(DEPS)
 bonus: $(BONUS)
 $(BONUS) : $(OBJS) $(OBJSBONUS)
 	ar -rcs $(NAME) $(OBJS) $(OBJSBONUS)
 	@touch $(BONUS)
+-include $(DEPS_BONUS)
 clean:
-	$(RM) $(OBJS) $(OBJSBONUS)
+	$(RM) $(OBJS) $(OBJSBONUS) $(DEPS) $(DEPS_BONUS)
 fclean: clean
 	$(RM) $(NAME)
 re: fclean all
