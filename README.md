@@ -1,1 +1,1 @@
-# my_stuff
+Mandatory part + Bonus -> 125%
